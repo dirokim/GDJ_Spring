@@ -1,13 +1,15 @@
 package com.winter.app.ioc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 
 public class Robot {
 	//팔, 왼쪽, 오른쪽
-	@Autowired
+	
 	private LeftArm leftArm;
 	
-	@Autowired
+	
 	private RightArm rightArm;
 	
 	public Robot() {

@@ -1,6 +1,6 @@
 package com.winter.app.ioc;
 
-public class RomotMain {
+public class RobotMain {
 
 	public static void main(String[] args) {
 		Robot robot = new Robot();

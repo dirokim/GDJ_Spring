@@ -5,4 +5,18 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<!--객체를 생성하고 주입하는것을 스프링한테 하려고하는데 1.어노테이션 2.  -->
+	<!--클래스명 변수명 = new 생성자()  -->
+	<!--xml 에서하려고하면 빈   -->
+	<bean class="com.winter.app.ioc.LeftArm" id="leftArm"> </bean>
+	<bean class="com.winter.app.ioc.RightArm" id="rightArm"> </bean>
+	<bean class="com.winter.app.ioc.Robot" id="robot">
+	<constructor-arg index="0" type="com.winter.app.ioc.LeftArm" ref="leftArm" ></constructor-arg>
+	<constructor-arg index="1" type="com.winter.app.ioc.RightArm" ref="rightArm"></constructor-arg>
+	<!-- property = setter   -->
+	<property name="leftArm" ref="leftArm"></property>
+	<property name="rightArm" ref="rightArm" ></property>
+	</bean>
+	
+			
 </beans>
