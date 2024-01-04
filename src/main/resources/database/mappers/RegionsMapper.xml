@@ -14,8 +14,9 @@
  		<select id="getList" resultType="com.winter.app.regions.RegionDTO">
   		SELECT * FROM REGIONS
   		</select>
-  	
-  	
+  		
+  		
+  		
  
   	</mapper>
   
