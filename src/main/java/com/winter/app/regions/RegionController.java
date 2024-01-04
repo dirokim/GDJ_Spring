@@ -17,34 +17,32 @@ import org.springframework.web.servlet.ModelAndView;
 public class RegionController {
 	
 	@Autowired
-	private RegionDAO regionDAO;
+	private RegionService reigonService;
 	
-	public RegionController() {
-		this.regionDAO = new RegionDAO();
-	}
+
 	
 	
-	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(RegionDTO regionDTO, Model model) throws Exception {
-//		String id = request.getParameter("region_id");
-//		String name = request.getParameter("region_name");
+//	@RequestMapping(value = "add", method = RequestMethod.POST)
+//	public String add(RegionDTO regionDTO, Model model) throws Exception {
+////		String id = request.getParameter("region_id");
+////		String name = request.getParameter("region_name");
+////		
+////		RegionDTO regionDTO = new RegionDTO();
+////		regionDTO.setRegion_id(Integer.parseInt(id));
+////		regionDTO.setRegion_name(name);
 //		
-//		RegionDTO regionDTO = new RegionDTO();
-//		regionDTO.setRegion_id(Integer.parseInt(id));
-//		regionDTO.setRegion_name(name);
-		
-		int result = this.regionDAO.add(regionDTO);
-		
-		String msg="등록 실패";
-		if(result>0) {
-			msg = "등록 성공";
-		}
-		
-		model.addAttribute("msg", msg);
-		model.addAttribute("path", "./list");
-		
-		return "commons/result";
-	}
+//		int result = this.regionDAO.add(regionDTO);
+//		
+//		String msg="등록 실패";
+//		if(result>0) {
+//			msg = "등록 성공";
+//		}
+//		
+//		model.addAttribute("msg", msg);
+//		model.addAttribute("path", "./list");
+//		
+//		return "commons/result";
+//	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add() {
@@ -77,7 +75,7 @@ public class RegionController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("Regions List");
 		RegionDAO regionDAO = new RegionDAO();
-		List<RegionDTO> ar = regionDAO.getList();
+		List<RegionDTO> ar = reigonService.getlist();
 		
 		mv.addObject("list", ar);
 		mv.setViewName("regions/list");
