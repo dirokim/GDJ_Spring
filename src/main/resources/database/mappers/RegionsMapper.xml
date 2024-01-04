@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!--mapper namespace 는 비우면 에러   -->
+  <!-- namespace 의 값은 중복 x   -->
+  <!-- 해당 mapper 를 사용할 DAO 의 풀 패키지명을 작성 -->
+  
+  <mapper namespace="com.winter.app.regions.RegionDAO">
+		<select id="getDetail" resultType"com.winter.app.regions.RegionDTO" parameterType="com.winter.app.regions.RegionDTO">
+		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}
+		</select>
+  	</mapper>
+  

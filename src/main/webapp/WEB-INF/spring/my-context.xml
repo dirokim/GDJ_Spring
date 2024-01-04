@@ -9,8 +9,16 @@
 	<property name="url" value="jdbc:oracle:thin:@13.124.85.237:1521:xe"></property>
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" ></property>
 </bean>
-	
-	
+
+<!--Connection, sql 문이 있는 xml 파일의 위치 , config 파일의위치를 알려줌  -->
+<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="mapperLocations" value="classpath:database/mappers/*Mapper.xml"></property>
+				
+</bean>
+	<bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSession">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactoryBean" ></constructor-arg>
+	</bean>
 
 
 </beans>
