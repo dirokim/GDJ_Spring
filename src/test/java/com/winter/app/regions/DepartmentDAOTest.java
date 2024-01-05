@@ -22,18 +22,18 @@ public class DepartmentDAOTest extends MyTest{
 		DepartmentDTO departmentDTO = new DepartmentDTO();
 		departmentDTO.setDepartment_id(290);
 		int result = departmentDAO.delete(departmentDTO);
-		assertEquals(0, result);
+		assertEquals(1, result);
 	}
 	
 	@Test
 	public void updateTest() throws Exception {
 		DepartmentDTO departmentDTO = new DepartmentDTO();
 		departmentDTO.setDepartment_id(280);
-		departmentDTO.setDepartment_name("test");
+		departmentDTO.setDepartment_name("Test");
 		departmentDTO.setManager_id(100);
 		departmentDTO.setLocation_id(1700);
-		departmentDAO.update(departmentDTO);
-		assertEquals(1, departmentDTO);
+	int result = departmentDAO.update(departmentDTO);
+		assertEquals(1, result);
 	}
 	
 	@Test
@@ -43,7 +43,7 @@ public class DepartmentDAOTest extends MyTest{
 		departmentDTO.setManager_id(100);
 		departmentDTO.setLocation_id(1700);
 		int result = departmentDAO.add(departmentDTO);
-		assertNotEquals(0, result);
+		assertEquals(1, result);
 	}
 	
 	@Test
