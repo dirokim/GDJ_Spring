@@ -17,15 +17,7 @@
     		<c:if test="${not empty dto}">
     		<h3>${dto.region_id}</h3>
     		<div>${dto.region_name}</div>
-    	    </c:if>
-    		
-    		<c:if test="${empty dto}">
-    			<h3>없는 번호 입니다</h3>
-    		</c:if>
-    	</div>
-    	
-    	
-    		<a href="./update">Update</a>
+    		<a href="">Update</a>
 			<button id="up" data-region-id="${dto.region_id}">Update</button>
 			
 			
@@ -33,6 +25,17 @@
     		<form id="frm" action="./delete" method="post">
     		<input type="hidden" name="region_id" value="${dto.region_id}">	
     		</form>
+    	    </c:if>
+    		
+    		
+    		
+    		<c:if test="${empty dto}">
+    			<h3>없는 번호 입니다</h3>
+    		</c:if>
+    	</div>
+    	
+    	
+
     
     
     

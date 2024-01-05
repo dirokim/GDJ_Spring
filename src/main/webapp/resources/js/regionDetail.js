@@ -3,8 +3,11 @@
  */
 	const up = document.getElementById("up");
 	up.addEventListener('click',function(){
-		let id = up.getAttribute('data-region-id');
-		location.href="./update?region_id="+id;
+		frm.setAttribute("action","update");
+		frm.setAttribute("method","get");
+		//let id = up.getAttribute('data-region-id');
+		//location.href="./update?region_id="+id;
+		frm.submit();
 
 	})
 	

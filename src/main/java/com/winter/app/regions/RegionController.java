@@ -66,7 +66,7 @@ public class RegionController {
 		}
 		
 		model.addAttribute("msg", msg);
-		
+		model.addAttribute("path", "./list");
 		
 		return "commons/result";
 	}
