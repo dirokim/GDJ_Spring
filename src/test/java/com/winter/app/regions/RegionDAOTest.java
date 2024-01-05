@@ -12,9 +12,30 @@ public class RegionDAOTest extends MyTest {
 	@Autowired
 	private RegionDAO regionDAO;
 	
+	@Test
+	public void deleteTest() throws Exception {
+		RegionDTO regionDTO = new RegionDTO();
+		regionDTO.setRegion_id(209);
+		int result = regionDAO.delete(regionDTO);
+		assertEquals(1, result);
+	}
 	
+	@Test
+	public void updateTest() throws Exception {
+		RegionDTO regionDTO = new RegionDTO();
+		regionDTO.setRegion_id(211);
+		regionDTO.setRegion_name("Europe1");
+		int result = regionDAO.update(regionDTO);
+		assertEquals(1, result);
+	}
 	
-	
+	@Test
+	public void addTest() throws Exception {
+		RegionDTO regionDTO = new RegionDTO();
+		regionDTO.setRegion_name("TEST");
+		int result= regionDAO.add(regionDTO);
+		assertEquals(1, result);
+	}
 	@Test
 	public void getListTest() throws Exception{
 		List<RegionDTO> ar = regionDAO.getList();

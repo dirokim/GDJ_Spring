@@ -15,9 +15,18 @@
   		SELECT * FROM REGIONS
   		</select>
   		
+  		<insert id="add"  parameterType="com.winter.app.regions.RegionDTO">
+  		INSERT INTO REGIONS VALUES(EMPLOYEES_SEQ.NEXTVAL,#{region_name})
+  		</insert>
   		
-  		
- 
+  		<update id="update" parameterType="com.winter.app.regions.RegionDTO">
+  		UPDATE REGIONS SET  REGION_NAME=#{region_name] WHERE REGION_ID=#{rgion_id}
+  		</update>
+  
+		<delete id="delete" parameterType="com.winter.app.regions.RegionDTO">
+			DELETE REGIONS WHERE REGION_ID=#{region_id}
+		</delete>  
+	  
   	</mapper>
   
   
