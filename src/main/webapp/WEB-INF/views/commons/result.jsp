@@ -11,7 +11,7 @@
 	let msg = '${msg}';
 	alert(msg);
 	location.href='${path}';
-
+	
 </script>
 
 </body>
