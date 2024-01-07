@@ -25,16 +25,13 @@
 		</thead>
 		<!-- for(int i=0;i<;i++) -->
 		<!-- for(타입명 변수명:배열명) -->
+				<tbody>
 		<c:forEach items="${requestScope.list}" var="dto">
 			<tr>
 				<td>${pageScope.dto.region_id}</td>
 				<td><a href="./detail?region_id=${dto.region_id}">${pageScope.dto.region_name}</a></td>
 			</tr>
 		</c:forEach>
-
-
-		<tbody>
-			
 		</tbody>
 		
 	</table>

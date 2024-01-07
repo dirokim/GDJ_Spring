@@ -23,7 +23,7 @@ pageEncoding="UTF-8"%>
 			  </div>
 			  <div class="mb-3">
 			    <label for="regionName" class="form-label">RegionName</label>
-			    <input type="text" name="region_name" class="form-control" id="regionName">
+			    <input type="text" name="productName" class="form-control" id="productNum">
 			  </div>
 
 			  <button type="submit" class="btn btn-primary">Add</button>
