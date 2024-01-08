@@ -30,7 +30,7 @@ public class RegionDAOTest extends MyTest {
 //		assertEquals(1, result);
 //	}
 //	
-	@Test
+//	@Test
 //	public void addTest() throws Exception {
 //		RegionDTO regionDTO = new RegionDTO();
 //		for(int i=0;i<100;i++) {
