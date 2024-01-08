@@ -10,8 +10,8 @@ public class Pager {
 	private Long page;
 	
 	public void makeRow() {
-		this.startRow = ((this.page-1)*perPage)+1;
-		this.lastRow =  this.page*perPage;
+		this.startRow = ((this.getPage()-1)*this.getPerPage())+1;
+		this.lastRow =  this.getPage()*this.getPerPage();
 	
 	
 	
@@ -29,6 +29,9 @@ public class Pager {
 
 
 	public Long getPage() {
+		if(this.page==null||this.page<1) {
+			this.page=1L;
+		}
 		return page;
 	}
 
