@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.winter.app.util.Pager;
+
 @Controller
 @RequestMapping(value = "/regions/*")
 public class RegionController {
@@ -89,11 +91,11 @@ public class RegionController {
 	}
 	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public ModelAndView list() throws Exception {
+	public ModelAndView list(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("Regions List");
 		RegionDAO regionDAO = new RegionDAO();
-		List<RegionDTO> ar = regionService.getlist();
+		List<RegionDTO> ar = regionService.getlist(pager);
 		mv.addObject("list", ar);
 		mv.setViewName("regions/list");
 		//return "regions/list";

@@ -8,6 +8,10 @@ public class RegionDTO {
 	private int region_id;
 	private String region_name;
 	
+	
+	
+	
+	
 	public int getRegion_id() {
 		return region_id;
 	}

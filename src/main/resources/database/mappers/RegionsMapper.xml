@@ -8,11 +8,14 @@
   <!-- 해당 mapper 를 사용할 DAO 의 풀 패키지명을 작성 -->
   
   <mapper namespace="com.winter.app.regions.RegionDAO">
-		<select id="getDetail" resultType="com.winter.app.regions.RegionDTO" parameterType="RegionDTO">
+		<select id="getDetail" resultType="RegionDTO" parameterType="RegionDTO">
 		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}</select>
  
- 		<select id="getList" resultType="com.winter.app.regions.RegionDTO">
-  		SELECT * FROM REGIONS
+ 		<select id="getList" resultType="RegionDTO" parameterType="Pager">
+  		SELECT * FROM  
+		(SELECT ROWNUM R , RG.* FROM 
+		(SELECT * FROM REGIONS  ORDER BY REGION_ID DESC) RG)
+		 WHERE R BETWEEN #{startRow} AND #{lastRow}
   		</select>
   		
   		<insert id="add"  parameterType="RegionDTO">
@@ -26,6 +29,9 @@
 		<delete id="delete" parameterType="RegionDTO">
 			DELETE REGIONS WHERE REGION_ID=#{region_id}
 		</delete>  
+	  
+	  	
+	  	
 	  
   	</mapper>
   
