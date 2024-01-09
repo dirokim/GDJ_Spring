@@ -8,6 +8,40 @@
   <!-- 해당 mapper 를 사용할 DAO 의 풀 패키지명을 작성 -->
   
   <mapper namespace="com.winter.app.regions.RegionDAO">
+  
+  
+  
+  	<sql id="search2">
+  		
+  		<choose>
+  			<when test="kind=='kind1'">
+  			TITLE LIKE '%'||#{search}||'%'</when>
+  			<when test="kind=='kind2'">
+  			CONTENTRTS LIKE '%'||#{search}||'%'
+  			</when>
+  			<otherwise>
+  			WRITER LIKE '%'||#{search}||'%'
+  			</otherwise>
+  		</choose>
+  		 <where>
+  		<if test="kind=='kind1'or kind=='kind4'">
+  		TITLE LIKE '%'||#{search}||'%'</if>
+  		<if test="kind=='kind2'or kind=='kind4'">
+  		AND CONTENTRTS LIKE '%'||#{search}||'%'</if>
+  		<if test="kind=='kind3'or kind=='kind4'">
+  	    AND	WRITER LIKE '%'||#{search}||'%'</if>
+  		<if test="kind=='kind4' or kind=='kind4'"></if>
+  		</where>
+  	</sql>
+  
+  
+  
+  	<sql id="search">
+  	WHERE REGION_NAME LIKE '%'||#{search}||'%' 
+  	</sql>
+  
+  
+  
 		<select id="getDetail" resultType="RegionDTO" parameterType="RegionDTO">
 		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}</select>
  
@@ -16,7 +50,7 @@
 		(SELECT ROWNUM R , RG.* FROM 
 		(SELECT * FROM REGIONS 
 		
-		WHERE REGION_NAME LIKE '%'||#{search}||'%' 
+		<include refid="search"></include>
 		 
 		ORDER BY REGION_ID DESC) RG)
 		 WHERE R BETWEEN #{startRow} AND #{lastRow}
@@ -34,11 +68,11 @@
 			DELETE REGIONS WHERE REGION_ID=#{region_id}
 		</delete>  
 	  
-	  	<select id="getTotal" resultType="Long" >
-	  		SELECT COUNT(REGION_ID) FROM REGIONS
+	  	<select id="getTotal" resultType="Long" parameterType="Pager" >
+	  		SELECT COUNT(REGION_ID) FROM REGIONS <include refid="search"></include>
 	  	</select>
 	  	
-
+		
 	  
   	</mapper>
   

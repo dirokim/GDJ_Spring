@@ -39,7 +39,7 @@ public class RegionService {
 	//list
 	public List<RegionDTO> getlist(Pager pager)throws Exception {
 		pager.makeRow();
-		Long totalCount = regionDAO.getTotal();
+		Long totalCount = regionDAO.getTotal(pager);
 		pager.makeNum(totalCount);
 
 		///////////////////////////////////////////////

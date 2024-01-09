@@ -19,7 +19,21 @@
 	
 	
 	<div>
-	<form class="row g-3">
+	<form class="row g-3" action="./list">
+	
+		<div class="col-auto">
+		
+	<select name="kind" class="form-select" aria-label="Default select example">
+  		
+ 	 	<option selected value="kind1">Title</option>
+ 	 	<option value="kind2">Contents</option>
+  		<option value="kind3">Writer</option>
+  		<option value="kind4">Title+Contents+Writer</option>
+	</select>
+		</div>
+	
+	
+	
   <div class="col-auto">
     <label for="search" class="visually-hidden">Password</label>
     <input type="text" class="form-control" name="search" id="search" placeholder="검색어을 입력해주세요">
@@ -63,7 +77,7 @@
   <ul class="pagination">
   	  	<c:if test="${!pager.start}">
    	 		<li class="page-item">
-    	  <a class="page-link" href="./list?page=${pager.startNum-1}" aria-label="Previous">
+    	  <a class="page-link" href="./list?page=${pager.startNum-1}&search=${pager.search}&kind=${pager.kind}" aria-label="Previous">
      	   <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
@@ -72,14 +86,14 @@
     
     
 	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i"> 
-    <li class="page-item" ><a class="page-link" href="./list?page=${i}">${i}</a></li>
+    <li class="page-item" ><a class="page-link" href="./list?page=${i}&search=${pager.search}&kind=${pager.kind}">${i}</a></li>
     </c:forEach>
 
 
 
 		<c:if test="${!pager.last}">
     <li class="page-item">
-      <a class="page-link" href="./list?page=${pager.lastNum+1}" aria-label="Next">
+      <a class="page-link" href="./list?page=${pager.lastNum+1}&search=${pager.search}&kind=${pager.kind}" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>

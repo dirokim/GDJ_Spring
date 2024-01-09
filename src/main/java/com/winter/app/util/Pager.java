@@ -18,6 +18,7 @@ public class Pager {
     
 	//검색 관련 
 	private String search;
+	private String kind;
 	
     //이전 블럭이 없으면 true ;
 	//다음 블럭이 없으면 true;
@@ -145,6 +146,12 @@ public class Pager {
 	}
 	public void setSearch(String search) {
 		this.search = search;
+	}
+	public String getKind() {
+		return kind;
+	}
+	public void setKind(String kind) {
+		this.kind = kind;
 	}
 	
 	
