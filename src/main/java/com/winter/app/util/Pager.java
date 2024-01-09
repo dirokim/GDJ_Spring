@@ -16,6 +16,8 @@ public class Pager {
 	private boolean start;
 	private boolean last;
     
+	//검색 관련 
+	private String search;
 	
     //이전 블럭이 없으면 true ;
 	//다음 블럭이 없으면 true;
@@ -134,6 +136,15 @@ public class Pager {
 	}
 	public void setTotalPage(Long totalPage) {
 		this.totalPage = totalPage;
+	}
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
 	}
 	
 	

@@ -17,6 +17,26 @@
 
 	<h1>Regions List</h1>
 	
+	
+	<div>
+	<form class="row g-3">
+  <div class="col-auto">
+    <label for="search" class="visually-hidden">Password</label>
+    <input type="text" class="form-control" name="search" id="search" placeholder="검색어을 입력해주세요">
+  </div>
+
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">검색</button>
+ 	</div>
+	
+	</form>
+	</div>
+	
+	
+	
+	
+	
+	
 	<table class="table table-hover">
 		<thead>
 			<tr>
