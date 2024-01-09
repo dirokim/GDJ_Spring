@@ -16,21 +16,6 @@ public class Pager {
 	private boolean start;
 	private boolean last;
     
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
     //이전 블럭이 없으면 true ;
 	//다음 블럭이 없으면 true;
@@ -73,6 +58,7 @@ public class Pager {
 
 	
 		Long totalPage = 0L;
+		totalPage= totalCount/this.getPerPage();
 		if(totalCount%this.getPerPage()!=0) {
 			totalPage++;
 		}
@@ -88,21 +74,16 @@ public class Pager {
 		//3.파라미터로 온 페이지 값으로 현재 블럭번호 찾기
 		Long curBlock= 0L;//현재의 블럭번호
 		curBlock = this.getPage()/perBlock;
-		if(this.getPage()/perBlock!=0) {
+		if(this.getPage()%perBlock!=0) {
 			curBlock++;
 		}
-		
 		//4.현재 블럭번호로 시작번호와 끝번호를 구하기 
 		Long startNum =0L;
 		Long lastNum = 0L;
 		lastNum= curBlock * perBlock;
 		startNum = lastNum-perBlock+1;
-		
 		this.setStartNum(startNum);
 		this.setLastNum(lastNum);
-		this.setTotalPage(totalPage);
-		
-		
 		
 		//이전 , 다음 블럭 유무
 		if(curBlock==1) {

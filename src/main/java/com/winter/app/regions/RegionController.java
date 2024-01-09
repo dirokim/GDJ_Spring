@@ -94,7 +94,7 @@ public class RegionController {
 	public ModelAndView list(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		System.out.println("Regions List");
-		RegionDAO regionDAO = new RegionDAO();
+
 		List<RegionDTO> ar = regionService.getlist(pager);
 		
 		mv.addObject("list", ar);
