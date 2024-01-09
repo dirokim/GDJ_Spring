@@ -98,6 +98,7 @@ public class RegionController {
 		List<RegionDTO> ar = regionService.getlist(pager);
 		mv.addObject("list", ar);
 		mv.setViewName("regions/list");
+		mv.addObject("total",pager.getTotalPage());
 		//return "regions/list";
 		return mv;
 	}

@@ -48,8 +48,8 @@ public class RegionService {
 		}else {
 		totalPage =  totalCount/pager.getPerPage()+1;
 		}
-		
 		pager.setTotalPage(totalPage);
+		
 		List<RegionDTO> ar = this.regionDAO.getList(pager);
 		return ar;
 	}

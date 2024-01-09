@@ -8,6 +8,7 @@ public class Pager {
 	private Long perPage=10L;//몇개씩 볼거냐
 	//startRow 랑 lastRow 계싼하는 메서드
 	private Long page;
+	private Long totalPage;
 	
 	public void makeRow() {
 		this.startRow = ((this.getPage()-1)*this.getPerPage())+1;
@@ -52,6 +53,12 @@ public class Pager {
 	}
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
+	}
+	public Long getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(Long totalPage) {
+		this.totalPage = totalPage;
 	}
 	
 	
