@@ -31,7 +31,7 @@
 		</delete>  
 	  
 	  	<select id="getTotal" resultType="Long" >
-	  		SELECT COUNT(*) FPOM REGIONS
+	  		SELECT COUNT(REGION_ID) FROM REGIONS
 	  	</select>
 	  	
 	  	

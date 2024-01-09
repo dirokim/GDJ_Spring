@@ -96,9 +96,10 @@ public class RegionController {
 		System.out.println("Regions List");
 		RegionDAO regionDAO = new RegionDAO();
 		List<RegionDTO> ar = regionService.getlist(pager);
+		
 		mv.addObject("list", ar);
 		mv.setViewName("regions/list");
-		mv.addObject("total",pager.getTotalPage());
+		mv.addObject("pager",pager);
 		//return "regions/list";
 		return mv;
 	}

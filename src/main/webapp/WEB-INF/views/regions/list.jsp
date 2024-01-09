@@ -36,8 +36,42 @@
 		
 	</table>
 	
-	<a href="add" class="btn btn-success">Add</a>
+	<div>
+
+ 
+ <nav aria-label="Page navigation example">
+  <ul class="pagination">
+  	  	<c:if test="${!pager.start}">
+   	 		<li class="page-item">
+    	  <a class="page-link" href="#" aria-label="Previous">
+     	   <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    	</c:if>
+    
+    
+    
+	<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i"> 
+    <li class="page-item" ><a class="page-link" href="#">${i}</a></li>
+    </c:forEach>
+
+
+
+		<c:if test="${!pager.last}">
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+     	</c:if>
+  </ul>
+  </nav>
+ 
+ 
+	</div>
 	
+	
+	<a href="add" class="btn btn-success">Add</a>
 	<c:import url="../temps/bootStrap_js.jsp"></c:import>
  	
 </body>

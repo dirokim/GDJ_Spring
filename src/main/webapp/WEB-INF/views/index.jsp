@@ -7,9 +7,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap demo</title>
-    
+      <c:import url="./temps/bootStrap_css.jsp"></c:import>
     <!-- css -->
-    <c:import url="./temps/bootStrap_css.jsp"></c:import>
+
   </head>
   <body>
   	<c:import url="./temps/header.jsp"></c:import>  
