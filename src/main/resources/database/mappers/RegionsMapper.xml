@@ -30,6 +30,9 @@
 			DELETE REGIONS WHERE REGION_ID=#{region_id}
 		</delete>  
 	  
+	  	<select id="getTotal" resultType="Long" >
+	  		SELECT COUNT(*) FPOM REGIONS
+	  	</select>
 	  	
 	  	
 	  

@@ -20,7 +20,7 @@ public class RegionDAO {
 	@Autowired
 	private SqlSession sqlSession;	
 	
-	private final String namespace="com.winter.app.regions.RegionDAO.";
+	private final String NAMESPACE="com.winter.app.regions.RegionDAO.";
 	
 	
 	
@@ -44,27 +44,29 @@ public class RegionDAO {
 //	}
 	//delete
 	public Integer delete(RegionDTO regionDTO) throws Exception {
-		return sqlSession.delete(namespace+"delete",regionDTO);
+		return sqlSession.delete(NAMESPACE+"delete",regionDTO);
 	}
 	//update
 	public Integer update(RegionDTO regionDTO) throws Exception {
-		return sqlSession.update(namespace+"update",regionDTO);
+		return sqlSession.update(NAMESPACE+"update",regionDTO);
 	}
 	//add
 	public Integer  add(RegionDTO regionDTO) throws Exception {
-		return 	sqlSession.insert(namespace+"add", regionDTO);
+		return 	sqlSession.insert(NAMESPACE+"add", regionDTO);
 	}
 	//detail
 	public RegionDTO getDetail(RegionDTO regionDTO)throws Exception{
-		return	sqlSession.selectOne(namespace+"getDetail",regionDTO);
+		return	sqlSession.selectOne(NAMESPACE+"getDetail",regionDTO);
 	}
 	//List
 	public List<RegionDTO> getList(Pager pager) throws Exception {	
-			return sqlSession.selectList(namespace+"getList",pager);	
+			return sqlSession.selectList(NAMESPACE+"getList",pager);	
 	}
 
 	
-	
+	public Long getTotal () throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"getTotal");
+	}
 	
 	
 }
