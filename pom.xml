@@ -27,6 +27,15 @@
 		    <version>19.21.0.0</version>
 		</dependency>
 			
+			<!--파싱된 파일 합쳐주는라이브러리  -->
+			<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.5</version>
+</dependency>
+			
+			
+			
 		<!--mybatis -->
 	<dependency>
   	 	 <groupId>org.mybatis</groupId>
