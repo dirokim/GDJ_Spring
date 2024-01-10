@@ -39,6 +39,8 @@ public class RegionService {
 	
 	//insert
 	public int add(RegionDTO regionDTO,MultipartFile file) throws Exception {
+		int result = regionDAO.add(regionDTO);
+		//어디에 저장 ?
 		String path = servletContext.getRealPath("/resources/uploadd");
 		System.out.println(path);
 		File f = new File(path,"regions");
@@ -47,15 +49,22 @@ public class RegionService {
 		}else {
 			f.mkdirs();
 		}
+		
+		//어떤 파일로 저장 ?
 		Calendar ca = Calendar.getInstance();
 		String fileName = ca.getTimeInMillis()+"_"+file.getOriginalFilename();
 		System.out.println(fileName);
 		
-		f = new File(f,fileName);
-		FileCopyUtils.copy(file.getBytes(), f);
+		//파일을 저장
+		f = new File(f,fileName);        // 경로 , 파일이름 
+		FileCopyUtils.copy(file.getBytes(), f);   // 파일 복사 , 어디에? 경로
 		
-//		return regionDAO.add(regionDTO);
-		return 0;
+		RegionFileDTO dto = new RegionFileDTO();
+		dto.setFileName(fileName);
+		dto.setOriName(file.getOriginalFilename());
+		dto.setRegion_id(regionDTO.getRegion_id());
+		return regionDAO.addFile(dto);
+		
 	}
 	
 	//detail
