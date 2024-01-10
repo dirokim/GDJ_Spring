@@ -72,7 +72,9 @@
 	  		SELECT COUNT(REGION_ID) FROM REGIONS <include refid="search"></include>
 	  	</select>
 	  	
-		
+		<insert id="addFile" parameterType="RegionFileDTO">
+			INSERT INTO REGIONFILES VALUES (FILE_SEQ.NEXTVAL,#{region_id},#{fileName},#{oriName})
+		</insert>
 	  
   	</mapper>
   

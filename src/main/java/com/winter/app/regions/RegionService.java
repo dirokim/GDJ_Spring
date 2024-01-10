@@ -1,9 +1,16 @@
 package com.winter.app.regions;
 
+import java.io.File;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.winter.app.util.Pager;
 
@@ -16,6 +23,10 @@ public class RegionService {
 	private RegionDAO regionDAO;
 	
 	
+	@Autowired
+	private ServletContext servletContext;
+	//내장 객체 중에서 application
+	
 	//delete
 	public int delete(RegionDTO regionDTO)throws Exception{
 		return regionDAO.delete(regionDTO);
@@ -27,9 +38,24 @@ public class RegionService {
 	}
 	
 	//insert
-	public int add(RegionDTO regionDTO) throws Exception {
-		return regionDAO.add(regionDTO);
+	public int add(RegionDTO regionDTO,MultipartFile file) throws Exception {
+		String path = servletContext.getRealPath("/resources/uploadd");
+		System.out.println(path);
+		File f = new File(path,"regions");
+		if(f.exists()) {
+			
+		}else {
+			f.mkdirs();
+		}
+		Calendar ca = Calendar.getInstance();
+		String fileName = ca.getTimeInMillis()+"_"+file.getOriginalFilename();
+		System.out.println(fileName);
 		
+		f = new File(f,fileName);
+		FileCopyUtils.copy(file.getBytes(), f);
+		
+//		return regionDAO.add(regionDTO);
+		return 0;
 	}
 	
 	//detail
