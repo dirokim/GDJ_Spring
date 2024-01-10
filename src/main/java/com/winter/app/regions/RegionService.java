@@ -49,7 +49,6 @@ public class RegionService {
 		}else {
 			f.mkdirs();
 		}
-		
 		//어떤 파일로 저장 ?
 		Calendar ca = Calendar.getInstance();
 		String fileName = ca.getTimeInMillis()+"_"+file.getOriginalFilename();
