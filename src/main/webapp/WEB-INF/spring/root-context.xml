@@ -5,10 +5,19 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-	<!--객체를 생성하고 주입하는것을 스프링한테 하려고하는데 1.어노테이션 2.  -->
+	<!--객체를 생성하고 주입하는것을 스프링한테 하려고하는데 1.어노테이션 2. xml -->
 	<!--클래스명 변수명 = new 생성자()  -->
 	<!--xml 에서하려고하면 빈   -->
 	
+	<!-- 파일관련 upload 객체 생성  -->
+	<!-- 여러개의 조각 들을 하나로 합치는객체  -->
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver" >
+		<property name="defaultEncoding" value="UTF-8)"></property>
+		<property name="maxUploadSize" value="10485760"></property>  
+		<property name="maxUploadSizePerFile" value="2097152"></property>
+		
+	</bean>
 	
 			
 </beans>
+						

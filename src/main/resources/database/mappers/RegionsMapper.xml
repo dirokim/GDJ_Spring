@@ -12,10 +12,10 @@
   
   
   	<sql id="search2">
-  		
+  		<bind name="p" value="'%'+_pameter.getSearch()+'%'"/>
   		<choose>
   			<when test="kind=='kind1'">
-  			TITLE LIKE '%'||#{search}||'%'</when>
+  			TITLE LIKE #{p}</when>
   			<when test="kind=='kind2'">
   			CONTENTRTS LIKE '%'||#{search}||'%'
   			</when>
