@@ -32,11 +32,38 @@ public class RegionService {
 	
 	//delete
 	public int delete(RegionDTO regionDTO)throws Exception{
-		return regionDAO.delete(regionDTO);
+		//하드에서 삭제
+		//1.지울 파일명 조회
+		 List<RegionFileDTO> ar = regionDAO.getListFiles(regionDTO);
+		//경로생성
+		; 
+		//hdd 에서 삭제
+		String path = servletContext.getRealPath("/resources/uploadd/regions/");	
+		for(RegionFileDTO f: ar) {
+			boolean num = fileManager.fileDelete(path, f.getFileName()); 
+			
+			
+			if(num==true) {
+				return 1;
+			}else {
+				return 0;
+			}
+		}
+
+		 
+		int result = regionDAO.delete(regionDTO);
+		
+		
+		//DB 에서 삭제
+			return result;
 	}
 	
 	//update
 	public int update(RegionDTO regionDTO)throws Exception {
+		
+		
+		
+		
 		return regionDAO.update(regionDTO);
 	}
 	

@@ -91,6 +91,15 @@
 			DELETE REGIONS WHERE REGION_ID=#{region_id}
 		</delete>  
 	  
+	  
+	  	<!-- file list  1 : n -->
+	  	 <select id="getListFiles" resultType="RegionFileDTO" parameterType="RegionDTO">
+	  		SELECT * FROM REGIONFILES WHERE REGION_ID = #{region_id}
+	  	</select>
+	  
+	  
+	  
+	  
 	  	<select id="getTotal" resultType="Long" parameterType="Pager" >
 	  		SELECT COUNT(REGION_ID) FROM REGIONS <include refid="search"></include>
 	  	</select>
@@ -99,6 +108,11 @@
 
 			INSERT INTO REGIONFILES VALUES (#{region_id},FILE_SEQ.NEXTVAL,#{fileName},#{oriName})
 		</insert>
+	  	
+	  	
+	  	
+	  	
+
 	  	
 	  	
   	</mapper>

@@ -70,7 +70,9 @@ public class RegionDAO {
 	}
 	
 	
-	
+	public List<RegionFileDTO> getListFiles(RegionDTO regionDTO) throws Exception  {
+		return sqlSession.selectList(NAMESPACE+"getListFiles",regionDTO);
+	}
 	
 	
 	//List
