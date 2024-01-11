@@ -44,9 +44,10 @@ public class RegionService {
 	public int add(RegionDTO regionDTO,MultipartFile file) throws Exception {
 		int result = regionDAO.add(regionDTO);
 		
-		String path = servletContext.getRealPath("/resources/uploadd");
-		
-		fileManager.fileSave("regions", file);
+		String path = servletContext.getRealPath("/resources/uploadd/regions");
+		System.out.println(path);
+		String fileName = fileManager.fileSave(path, file);
+		//4.DB에정보 저장 
 		RegionFileDTO dto = new RegionFileDTO();
 		dto.setFileName(fileName);
 		dto.setOriName(file.getOriginalFilename());
