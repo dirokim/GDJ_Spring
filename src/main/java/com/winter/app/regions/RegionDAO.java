@@ -63,7 +63,16 @@ public class RegionDAO {
 	//detail
 	public RegionDTO getDetail(RegionDTO regionDTO)throws Exception{
 		return	sqlSession.selectOne(NAMESPACE+"getDetail",regionDTO);
+	
+	
+	
+	
 	}
+	
+	
+	
+	
+	
 	//List
 	public List<RegionDTO> getList(Pager pager) throws Exception {	
 			return sqlSession.selectList(NAMESPACE+"getList",pager);	

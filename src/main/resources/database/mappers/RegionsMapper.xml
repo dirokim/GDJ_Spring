@@ -45,6 +45,10 @@
 		<select id="getDetail" resultType="RegionDTO" parameterType="RegionDTO">
 		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}</select>
  
+ 
+ 
+ 
+ 
  		<select id="getList" resultType="RegionDTO" parameterType="Pager">
   		SELECT * FROM  
 		(SELECT ROWNUM R , RG.* FROM 
@@ -81,7 +85,7 @@
 	  	
 		<insert id="addFile" parameterType="RegionFileDTO">
 
-			INSERT INTO REGIONFILES VALUES (FILE_SEQ.NEXTVAL,#{region_id},#{fileName},#{oriName})
+			INSERT INTO REGIONFILES VALUES (#{region_id},FILE_SEQ.NEXTVAL,#{fileName},#{oriName})
 		</insert>
 	  
   	</mapper>

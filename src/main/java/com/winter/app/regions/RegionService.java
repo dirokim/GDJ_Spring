@@ -59,6 +59,13 @@ public class RegionService {
 	//detail
 	public RegionDTO getdetail(RegionDTO regionDTO)throws Exception {
 		return regionDAO.getDetail(regionDTO);
+		
+		
+		
+		
+		
+		
+		
 	}
 	//list
 	public List<RegionDTO> getlist(Pager pager)throws Exception {

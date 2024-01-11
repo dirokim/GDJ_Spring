@@ -18,6 +18,7 @@ public class FileManager {
 	
 	public String fileSave(String path,MultipartFile file) throws Exception {
 		//어디에 저장 ?
+				System.out.println(path);
 				//경로 리얼경로
 				File f = new File(path); 
 //				f = new File(f,"regions");
