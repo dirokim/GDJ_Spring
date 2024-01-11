@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.winter.app.util.FileManager;
 import com.winter.app.util.Pager;
 
 @Service
@@ -21,6 +22,8 @@ public class RegionService {
 	//list 가지고 오는거
 	@Autowired
 	private RegionDAO regionDAO;
+	@Autowired
+	private FileManager fileManager;
 	
 	
 	@Autowired
@@ -40,23 +43,9 @@ public class RegionService {
 	//insert
 	public int add(RegionDTO regionDTO,MultipartFile file) throws Exception {
 		int result = regionDAO.add(regionDTO);
-		//어디에 저장 ?
-		String path = servletContext.getRealPath("/resources/uploadd");
-		System.out.println(path);
-		File f = new File(path,"regions");
-		if(f.exists()) {
-			
-		}else {
-			f.mkdirs();
-		}
-		//어떤 파일로 저장 ?
-		Calendar ca = Calendar.getInstance();
-		String fileName = ca.getTimeInMillis()+"_"+file.getOriginalFilename();
-		System.out.println(fileName);
 		
-		//파일을 저장
-		f = new File(f,fileName);        // 경로 , 파일이름 
-		FileCopyUtils.copy(file.getBytes(), f);   // 파일 복사 , 어디에? 경로
+		String path = servletContext.getRealPath("/resources/uploadd");
+		
 		
 		RegionFileDTO dto = new RegionFileDTO();
 		dto.setFileName(fileName);
