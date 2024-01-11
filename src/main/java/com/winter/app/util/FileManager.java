@@ -39,7 +39,11 @@ public class FileManager {
 				
 				//파일을 저장
 				f = new File(f,fileName);        // 경로 , 파일이름 
-				FileCopyUtils.copy(file.getBytes(), f);   // 파일 복사 , 어디에? 경로
+//				FileCopyUtils.copy(file.getBytes(), f);   // 파일 복사 , 어디에? 경로 1.FileCopyUtils
+				file.transferTo(f);					//2. MultipartFile .transferTo.
+				
+				
+				
 		return fileName;
 	}
 }
