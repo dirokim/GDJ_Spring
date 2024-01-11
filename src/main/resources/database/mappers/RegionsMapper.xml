@@ -42,10 +42,22 @@
   
   
   
-		<select id="getDetail" resultType="RegionDTO" parameterType="RegionDTO">
-		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}</select>
- 
- 
+		<select id="getDetail" resultMap="getDetailResult" parameterType="RegionDTO">
+		SELECT * FROM REGIONS R 
+		LEFT OUTER JOIN REGIONFILES USING(REGION_ID) 
+		WHERE REGION_ID=#{region_id}
+		</select>
+		
+ 		<resultMap type="RegionDTO" id="getDetailResult">
+ 		<id column="REGION_ID" property="region_id"/>
+ 		<result column="REGION_NAME" property="region_name"/>
+	 	<association property="regionFileDTO" javaType="RegionFileDTO">
+ 		<id column="FILENUM" property="fileNum"/>
+ 		<result column="FILENAME" property="fileName"/>
+ 		<result column="ORINAME" property="oriName"/>
+ 		</association>
+ 		</resultMap>
+ 	
  
  
  
@@ -87,7 +99,8 @@
 
 			INSERT INTO REGIONFILES VALUES (#{region_id},FILE_SEQ.NEXTVAL,#{fileName},#{oriName})
 		</insert>
-	  
+	  	
+	  	
   	</mapper>
   
   
