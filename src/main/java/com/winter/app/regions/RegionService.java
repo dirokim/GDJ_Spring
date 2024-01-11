@@ -46,7 +46,7 @@ public class RegionService {
 		
 		String path = servletContext.getRealPath("/resources/uploadd");
 		
-		
+		fileManager.fileSave("regions", file);
 		RegionFileDTO dto = new RegionFileDTO();
 		dto.setFileName(fileName);
 		dto.setOriName(file.getOriginalFilename());
