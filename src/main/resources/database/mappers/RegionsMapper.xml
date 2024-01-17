@@ -23,6 +23,7 @@
   			WRITER LIKE '%'||#{search}||'%'
   			</otherwise>
   		</choose>
+  		
   		 <where>
   		<if test="kind=='kind1'or kind=='kind4'">
   		TITLE LIKE '%'||#{search}||'%'</if>
